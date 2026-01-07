@@ -1,0 +1,601 @@
+ *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    background: #1a1a1a;  
+    color:#fff;
+    font-family: system-ui,sans-serif;
+    position: relative;  
+    overflow-x: hidden; /* إضافة جديدة: عشان لو في رسومات برة الشاشة ما تظهرش */
+}
+
+/* ====== إضافة جديدة: خلفية مع رسومات إلكترونيات كتيرة جداً ====== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background-image: 
+        /* موبايل 1 */
+        url("data:image/svg+xml,%3Csvg width='60' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='10' width='30' height='50' rx='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3Crect x='20' y='15' width='20' height='35' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='30' cy='55' r='2' fill='%23ffffff' opacity='0.18'/%3E%3C/svg%3E"),
+        /* لابتوب 1 */
+        url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='15' width='50' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.20'/%3E%3Cline x1='10' y1='52' x2='70' y2='52' stroke='%23ffffff' stroke-width='1.5' opacity='0.20'/%3E%3Crect x='12' y='20' width='56' height='28' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E"),
+        /* بطارية 1 */
+        url("data:image/svg+xml,%3Csvg width='50' height='70' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='25' width='20' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3Crect x='20' y='20' width='10' height='5' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.19'/%3E%3Cline x1='18' y1='35' x2='32' y2='35' stroke='%23ffffff' stroke-width='1' opacity='0.17'/%3E%3Cline x1='18' y1='42' x2='32' y2='42' stroke='%23ffffff' stroke-width='1' opacity='0.17'/%3E%3C/svg%3E"),
+        /* سلك 1 */
+        url("data:image/svg+xml,%3Csvg width='100' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 30 Q30 15 50 30 T90 30' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.17'/%3E%3Ccircle cx='10' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3Ccircle cx='90' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E"),
+        /* شاحن 1 */
+        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='20' width='20' height='25' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.20'/%3E%3Crect x='27' y='45' width='6' height='8' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.19'/%3E%3Cline x1='28' y1='28' x2='28' y2='38' stroke='%23ffffff' stroke-width='2' opacity='0.18'/%3E%3Cpolygon points='32,28 32,33 35,30' fill='%23ffffff' opacity='0.18'/%3E%3C/svg%3E"),
+        /* سماعة 1 */
+        url("data:image/svg+xml,%3Csvg width='70' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 45 Q25 20 35 20 Q45 20 45 45' fill='none' stroke='%23ffffff' stroke-width='2' opacity='0.19'/%3E%3Crect x='20' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.20'/%3E%3Crect x='40' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.20'/%3E%3C/svg%3E"),
+        /* موبايل 2 */
+        url("data:image/svg+xml,%3Csvg width='60' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='10' width='30' height='50' rx='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.16'/%3E%3Crect x='20' y='15' width='20' height='35' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.14'/%3E%3Ccircle cx='30' cy='55' r='2' fill='%23ffffff' opacity='0.16'/%3E%3C/svg%3E"),
+        /* لابتوب 2 */
+        url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='15' width='50' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3Cline x1='10' y1='52' x2='70' y2='52' stroke='%23ffffff' stroke-width='1.5' opacity='0.18'/%3E%3Crect x='12' y='20' width='56' height='28' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.14'/%3E%3C/svg%3E"),
+        /* بطارية 2 */
+        url("data:image/svg+xml,%3Csvg width='50' height='70' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='25' width='20' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.17'/%3E%3Crect x='20' y='20' width='10' height='5' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.17'/%3E%3Cline x1='18' y1='35' x2='32' y2='35' stroke='%23ffffff' stroke-width='1' opacity='0.15'/%3E%3Cline x1='18' y1='42' x2='32' y2='42' stroke='%23ffffff' stroke-width='1' opacity='0.15'/%3E%3C/svg%3E"),
+        /* سلك 2 */
+        url("data:image/svg+xml,%3Csvg width='100' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 30 Q30 15 50 30 T90 30' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.15'/%3E%3Ccircle cx='10' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.16'/%3E%3Ccircle cx='90' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.16'/%3E%3C/svg%3E"),
+        /* شاحن 2 */
+        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='20' width='20' height='25' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3Crect x='27' y='45' width='6' height='8' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.17'/%3E%3Cline x1='28' y1='28' x2='28' y2='38' stroke='%23ffffff' stroke-width='2' opacity='0.16'/%3E%3Cpolygon points='32,28 32,33 35,30' fill='%23ffffff' opacity='0.16'/%3E%3C/svg%3E"),
+        /* سماعة 2 */
+        url("data:image/svg+xml,%3Csvg width='70' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 45 Q25 20 35 20 Q45 20 45 45' fill='none' stroke='%23ffffff' stroke-width='2' opacity='0.17'/%3E%3Crect x='20' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3Crect x='40' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E"),
+        /* موبايل 3 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='60' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='10' width='30' height='50' rx='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3Crect x='20' y='15' width='20' height='35' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.16'/%3E%3Ccircle cx='30' cy='55' r='2' fill='%23ffffff' opacity='0.19'/%3E%3C/svg%3E"),
+        /* لابتوب 3 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='15' width='50' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.21'/%3E%3Cline x1='10' y1='52' x2='70' y2='52' stroke='%23ffffff' stroke-width='1.5' opacity='0.21'/%3E%3Crect x='12' y='20' width='56' height='28' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.16'/%3E%3C/svg%3E"),
+        /* بطارية 3 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='50' height='70' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='25' width='20' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3Crect x='20' y='20' width='10' height='5' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.18'/%3E%3Cline x1='18' y1='35' x2='32' y2='35' stroke='%23ffffff' stroke-width='1' opacity='0.16'/%3E%3Cline x1='18' y1='42' x2='32' y2='42' stroke='%23ffffff' stroke-width='1' opacity='0.16'/%3E%3C/svg%3E"),
+        /* سلك 3 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='100' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 30 Q30 15 50 30 T90 30' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.18'/%3E%3Ccircle cx='10' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3Ccircle cx='90' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3C/svg%3E"),
+        /* شاحن 3 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='20' width='20' height='25' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.21'/%3E%3Crect x='27' y='45' width='6' height='8' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.20'/%3E%3Cline x1='28' y1='28' x2='28' y2='38' stroke='%23ffffff' stroke-width='2' opacity='0.19'/%3E%3Cpolygon points='32,28 32,33 35,30' fill='%23ffffff' opacity='0.19'/%3E%3C/svg%3E"),
+        /* سماعة 3 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='70' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 45 Q25 20 35 20 Q45 20 45 45' fill='none' stroke='%23ffffff' stroke-width='2' opacity='0.20'/%3E%3Crect x='20' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.21'/%3E%3Crect x='40' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.21'/%3E%3C/svg%3E"),
+        /* موبايل 4 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='60' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='10' width='30' height='50' rx='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.17'/%3E%3Crect x='20' y='15' width='20' height='35' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='30' cy='55' r='2' fill='%23ffffff' opacity='0.17'/%3E%3C/svg%3E"),
+        /* لابتوب 4 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='15' width='50' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3Cline x1='10' y1='52' x2='70' y2='52' stroke='%23ffffff' stroke-width='1.5' opacity='0.19'/%3E%3Crect x='12' y='20' width='56' height='28' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E"),
+        /* بطارية 4 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='50' height='70' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='15' y='25' width='20' height='35' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.20'/%3E%3Crect x='20' y='20' width='10' height='5' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.20'/%3E%3Cline x1='18' y1='35' x2='32' y2='35' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3Cline x1='18' y1='42' x2='32' y2='42' stroke='%23ffffff' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E"),
+        /* سلك 4 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='100' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 30 Q30 15 50 30 T90 30' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.16'/%3E%3Ccircle cx='10' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.17'/%3E%3Ccircle cx='90' cy='30' r='3' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.17'/%3E%3C/svg%3E"),
+        /* شاحن 4 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='20' width='20' height='25' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3Crect x='27' y='45' width='6' height='8' fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.18'/%3E%3Cline x1='28' y1='28' x2='28' y2='38' stroke='%23ffffff' stroke-width='2' opacity='0.17'/%3E%3Cpolygon points='32,28 32,33 35,30' fill='%23ffffff' opacity='0.17'/%3E%3C/svg%3E"),
+        /* سماعة 4 - إضافة جديدة */
+        url("data:image/svg+xml,%3Csvg width='70' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 45 Q25 20 35 20 Q45 20 45 45' fill='none' stroke='%23ffffff' stroke-width='2' opacity='0.18'/%3E%3Crect x='20' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3Crect x='40' y='45' width='10' height='15' rx='2' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.19'/%3E%3C/svg%3E");
+    /* الأماكن اللي هتظهر فيها الرسومات على الشاشة - زودتها لـ 24 مكان */
+    background-position: 
+        5% 10%,    /* موبايل 1 */
+        85% 20%,   /* لابتوب 1 */
+        20% 65%,   /* بطارية 1 */
+        55% 55%,   /* سلك 1 */
+        92% 75%,   /* شاحن 1 */
+        12% 82%,   /* سماعة 1 */
+        45% 15%,   /* موبايل 2 */
+        70% 40%,   /* لابتوب 2 */
+        10% 40%,   /* بطارية 2 */
+        80% 85%,   /* سلك 2 */
+        30% 30%,   /* شاحن 2 */
+        60% 75%,   /* سماعة 2 */
+        25% 5%,    /* موبايل 3 - جديد */
+        95% 50%,   /* لابتوب 3 - جديد */
+        40% 90%,   /* بطارية 3 - جديد */
+        15% 55%,   /* سلك 3 - جديد */
+        65% 10%,   /* شاحن 3 - جديد */
+        5% 70%,    /* سماعة 3 - جديد */
+        50% 35%,   /* موبايل 4 - جديد */
+        35% 50%,   /* لابتوب 4 - جديد */
+        75% 65%,   /* بطارية 4 - جديد */
+        90% 35%,   /* سلك 4 - جديد */
+        20% 25%,   /* شاحن 4 - جديد */
+        48% 80%;   /* سماعة 4 - جديد */
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none; /* عشان ما تعطلش الضغط على العناصر */
+}
+
+ body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background: radial-gradient(circle at 30% 40%, rgba(57, 0, 83, 0.15) 0%, transparent 50%),
+     radial-gradient(circle at 70% 60%, rgba(160, 13, 2, 0.1) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cruds{
+   margin:auto;
+    width:80%; 
+    position: relative;  
+    z-index: 1;  
+}
+
+.cruds .head{
+    text-align: center;
+    margin:20px 0px;
+    text-transform: uppercase;
+
+}
+.cruds .head p{
+      margin: 8px 0px ;
+}
+input,small{
+    width:100%;
+    border:none;
+    outline:none;
+    padding:4px;
+    margin: 4px 0px;
+    height: 30px;
+    background:#111;
+    border-radius: 10px;
+    color:#fff;
+}
+input:focus{
+    box-shadow: 0 0 5px #390053;
+    background: #000;
+    transform: scale(1.1);
+}
+button{
+    width:100%;
+    height: 30px;
+    background: #390053;
+    border: none;
+    color:#fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+button:hover{
+    background: #51025f;
+    letter-spacing: 1px;
+    
+}
+.btn-search{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-search .btn{
+    width:48%;
+}
+.price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.price input {
+    width:20%;
+
+}
+.price small{
+    width: 10%;
+    height: 30px;
+    background: #a00d02;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: default;
+}
+.price small::before{
+    content: "Total:";
+}
+
+table{
+    width:100%;
+    text-align: center;
+    margin:10px 0px;
+    border-collapse: collapse; /* إضافة جديدة: عشان الحدود تلزق في بعض */
+    background: rgba(17, 17, 17, 0.6);  
+    border-radius: 10px;  
+    overflow: hidden; 
+    backdrop-filter: blur(5px);  
+}
+
+ table th {
+    padding: 12px 5px; 
+    background: rgba(57, 0, 83, 0.4);  
+    border: 1px solid #fff;  
+    border-top: 2px solid #fff;  
+    font-weight: bold;  
+    text-transform: uppercase;  
+    letter-spacing: 0.5px; 
+}
+
+ table td {
+    padding: 10px 5px;  
+    border: 1px solid #fff;  
+    border-bottom: 1px solid #fff;  
+}
+
+ table tbody tr {
+    transition: background 0.3s ease;
+}
+
+table tbody tr:hover {
+    background: rgba(57, 0, 83, 0.3);
+}
+
+ table thead tr {
+    border-bottom: 2px solid #fff;
+}
+
+table th:first-child,
+table td:first-child {
+    border-left: 2px solid #fff;
+}
+
+table th:last-child,
+table td:last-child {
+    border-right: 2px solid #fff;
+}
+
+ table tbody tr:last-child td {
+    border-bottom: 2px solid #fff;
+}
+#deletAll{
+    margin:20px 0px;
+}
+ /* Light Mode */
+body.light {
+    background-color: #f5f5f5;
+    color: #111;
+    font-family: system-ui, sans-serif;
+}
+
+body.light input,
+body.light button {
+    background-color: #fff;
+    color: #fff;
+    font-size: 16px;
+}
+
+body.light button {
+    background-color: #561d60;
+}
+
+body.light table {
+    background-color: #eee;
+    color: #111;
+}
+th{
+    cursor: pointer;
+    color: #fff; /* نص الكلمة أبيض */
+    user-select: none;
+    position: relative;
+}
+
+.sort-arrow{
+    color: #fff; /* السهم أبيض */
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+
+@media (max-width: 768px) {
+    .cruds {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    .cruds .head h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-search {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-search .btn {
+        width: 100%;
+    }
+
+    .price {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .price input {
+        width: calc(50% - 5px);
+    }
+
+    .price small {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    table {
+        min-width: 500px;
+        font-size: 14px;
+    }
+
+    table th, table td {
+        padding: 8px 5px;
+    }
+}
+
+/* ========== للموبايل الكبير (600px وأقل) ========== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px 0;
+    }
+
+    .cruds {
+        width: 98%;
+        padding: 0 5px;
+    }
+
+    .cruds .head {
+        margin: 15px 0;
+    }
+
+    .cruds .head h1 {
+        font-size: 1.3rem;
+    }
+
+    .cruds .head p {
+        font-size: 0.9rem;
+    }
+
+    input, small, button {
+        min-height: 45px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .price input {
+        width: 100%;
+    }
+
+    table {
+        min-width: 450px;
+        font-size: 13px;
+    }
+
+    table th {
+        padding: 10px 4px;
+        font-size: 0.75rem;
+    }
+
+    table td {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+    }
+
+    table td button {
+        min-height: 30px;
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+
+    /* تقليل الخلفية على الموبايل */
+    body::before {
+        opacity: 0.5;
+    }
+}
+
+/* ========== للتابلت الصغير (768px وأقل) ========== */
+@media (max-width: 768px) {
+    .cruds {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    .cruds .head h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-search {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-search .btn {
+        width: 100%;
+    }
+
+    .price {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .price input {
+        width: calc(50% - 5px);
+    }
+
+    .price small {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* تقليل حجم الجدول */
+    table {
+        font-size: 0.8rem;
+    }
+
+    table th, table td {
+        padding: 8px 4px;
+    }
+
+    table th {
+        font-size: 0.75rem;
+    }
+
+    table td button {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ========== للموبايل الكبير (600px وأقل) ========== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px 0;
+    }
+
+    .cruds {
+        width: 98%;
+        padding: 0 5px;
+    }
+
+    .cruds .head {
+        margin: 15px 0;
+    }
+
+    .cruds .head h1 {
+        font-size: 1.3rem;
+    }
+
+    .cruds .head p {
+        font-size: 0.85rem;
+    }
+
+    input, small, button {
+        min-height: 42px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .price input {
+        width: 100%;
+    }
+
+    /* تقليل حجم الجدول للموبايل */
+    .table-container {
+        margin: 15px -5px; /* يمتد لحواف الشاشة */
+        border-radius: 8px;
+    }
+
+    table {
+        font-size: 0.7rem;
+    }
+
+    table th {
+        padding: 8px 3px;
+        font-size: 0.65rem;
+        letter-spacing: 0;
+    }
+
+    table td {
+        padding: 6px 3px;
+        font-size: 0.7rem;
+    }
+
+    table td button {
+        min-height: 28px;
+        padding: 4px 6px;
+        font-size: 0.65rem;
+        border-radius: 6px;
+    }
+
+    /* تقليل الخلفية على الموبايل */
+    body::before {
+        opacity: 0.5;
+    }
+}
+
+/* ========== للموبايل الصغير جداً (400px وأقل) ========== */
+@media (max-width: 400px) {
+    .cruds .head h1 {
+        font-size: 1.1rem;
+    }
+
+    .cruds .head p {
+        font-size: 0.75rem;
+    }
+
+    /* تصغير الجدول أكثر للشاشات الصغيرة جداً */
+    table {
+        font-size: 0.65rem;
+    }
+
+    table th {
+        padding: 6px 2px;
+        font-size: 0.6rem;
+    }
+
+    table td {
+        padding: 5px 2px;
+        font-size: 0.65rem;
+    }
+
+    table td button {
+        min-height: 26px;
+        padding: 3px 5px;
+        font-size: 0.6rem;
+    }
+
+    .sort-arrow {
+        font-size: 0.6rem;
+        margin-left: 2px;
+    }
+
+    /* تصغير الحدود */
+    table th,
+    table td {
+        border-width: 0.5px;
+    }
+
+    table th:first-child,
+    table td:first-child {
+        border-left-width: 1px;
+    }
+
+    table th:last-child,
+    table td:last-child {
+        border-right-width: 1px;
+    }
+}
+
+/* ========== للشاشات الكبيرة جداً (1400px وأعلى) ========== */
+@media (min-width: 1400px) {
+    .cruds {
+        width: 70%;
+    }
+
+    table th, table td {
+        padding: 15px 12px;
+        font-size: 1.05rem;
+    }
+}
+
+/* ========== تحسينات للأجهزة اللمسية ========== */
+@media (hover: none) {
+    button:active {
+        transform: scale(0.98);
+    }
+
+    input:focus {
+        transform: scale(1);
+    }
+}
+
+/* ========== وضع اللاندسكيب للموبايل ========== */
+@media (max-width: 900px) and (orientation: landscape) {
+    body {
+        padding: 5px 0;
+    }
+
+    .cruds .head {
+        margin: 10px 0;
+    }
+
+    input, button {
+        min-height: 38px;
+    }
+
+    table th, table td {
+        padding: 6px 4px;
+    }
+}
