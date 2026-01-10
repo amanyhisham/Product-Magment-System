@@ -269,6 +269,14 @@ body.light table {
     background-color: #eee;
     color: #111;
 }
+body.light input {
+    color: #111;
+}
+
+body.light input::placeholder {
+    color: #555;
+}
+
 th{
     cursor: pointer;
     color: #fff; /* نص الكلمة أبيض */
@@ -598,4 +606,5 @@ th{
     table th, table td {
         padding: 6px 4px;
     }
+
 }
