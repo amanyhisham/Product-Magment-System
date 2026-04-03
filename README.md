@@ -52,6 +52,7 @@ Product-Magment-System/
    ```
 2. Open `index.html` in your browser.
 3. Start adding and managing your products!
+4. try delete and updata.
 
 ---
 
